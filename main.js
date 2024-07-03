@@ -40,17 +40,20 @@ function render(filteredList){
   let resultHTML = ''
   for(let i=0;i<filteredList.length;i++){
     if(filteredList[i].isComplete == true){
-      resultHTML += `<div class = "task_list">
+
+      resultHTML += `<div class = "task_list" style='background-color: #f3f0f0'>
                 <div class="task_done">${filteredList[i].todo_input}  </div>
                   
                   <div> 
                     <button onclick="togglecomplete('${filteredList[i].id}')" class="btn-hover color-9">
-                    Check</button>
+                    undo</button>
                     <button onclick="deleteTask('${filteredList[i].id}')" class="btn-hover color-10">
                     delete</button>
                   </div>
                 </div>
               </div>`
+      // let checkButton = document.getElementById("btn-hover color-9")
+
     }else {
       resultHTML += `<div class = "task_list">
                   <div>${filteredList[i].todo_input}  </div>
@@ -73,7 +76,7 @@ function render(filteredList){
 function togglecomplete(id){
   for(let i=0; i<todo_list.length;i++){
     if(todo_list[i].id == id){
-      todo_list[i].isComplete = !todo_list[i].isComplete;
+      todo_list[i].isComplete = !todo_list[i].isComplete; // 이게 check 눌렀을 때, 안눌렀을 때를 나눔
       break;
     }
   }
@@ -89,7 +92,6 @@ function deleteTask(id){
   }
   render(todo_list)
 }
-
 
 function filter(event){
   let mode = event.target.id 
@@ -118,6 +120,7 @@ function filter(event){
     render(filteredList)
   }
 }
+
 
 
 function slide(event){
