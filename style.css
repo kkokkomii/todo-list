@@ -23,6 +23,12 @@ body{
 
 }
 
+/* 
+#todo{
+  display: flex;
+  flex-basis: 100px;
+  flex-grow: 1;
+} */
 
 .task_tabs div{
   padding: 1em;
@@ -30,13 +36,15 @@ body{
 }
 
 #under_line{
+  position : absolute;
   height: 4px;
-  background-color: grey;
+  background-color: skyblue;
   position : absolute;
   width : 0;
   left : 0;
   top:0;
   padding : 0px;
+  transition : 0.5s;
 }
 
 .task_board{
